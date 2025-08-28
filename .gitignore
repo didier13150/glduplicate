@@ -1,0 +1,5 @@
+*.bak
+.gitlab.id
+glduplicate
+*.json
+
