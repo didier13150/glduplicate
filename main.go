@@ -11,6 +11,9 @@ import (
 
 func main() {
 
+	prefixKey := "VAR_PREFIX"
+	prefixEnv := "*"
+	prefixSep := "_"
 	varsFile := ".gitlab-vars.json"
 	verboseMode := false
 	dryrunMode := false
@@ -20,6 +23,9 @@ func main() {
 	}
 
 	var varsFileOpt = flag.String("varfile", varsFile, "File which contains vars.")
+	var prefixKeyOpt = flag.String("prefixkey", prefixKey, "Var key which value contains prefix")
+	var prefixEnvOpt = flag.String("prefixenv", prefixEnv, "Var env which value contains prefix")
+	var prefixSepOpt = flag.String("prefixsep", prefixSep, "Separator beztween prefix and real variable name")
 	var verboseOpt = flag.Bool("verbose", false, "Make application more talkative.")
 	var dryrunOpt = flag.Bool("dryrun", false, "Run in dry-run mode (read only).")
 
@@ -40,6 +46,15 @@ func main() {
 	if varsFileOpt != nil {
 		varsFile = *varsFileOpt
 	}
+	if prefixKeyOpt != nil {
+		prefixKey = *prefixKeyOpt
+	}
+	if prefixEnvOpt != nil {
+		prefixEnv = *prefixEnvOpt
+	}
+	if prefixSepOpt != nil {
+		prefixSep = *prefixSepOpt
+	}
 
 	glvar := gitlablib.NewGitlabVar("", "", verboseMode)
 	if dryrunMode {
@@ -50,7 +65,7 @@ func main() {
 	}
 	glvar.ImportVars(varsFile)
 
-	varPrefix := getValue(&glvar, "VAR_PREFIX", "*") + "_"
+	varPrefix := getValue(&glvar, prefixKey, prefixEnv) + prefixSep
 	if verboseMode {
 		log.Printf("Var prefix is defined to \"%s\"\n", varPrefix)
 	}
