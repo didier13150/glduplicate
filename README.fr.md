@@ -6,6 +6,12 @@ Il ne fait que modifier le fichier d'export des variables (fichier `.gitlab.var.
 
 L'application possède également un mode lecture seule, qui liste les modifications sans les appliquer: `-dryrun`
 
+## Installation
+
+```
+go install github.com/didier13150/glduplicate@latest
+```
+
 ## Usage de l'application
 
 ```

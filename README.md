@@ -6,6 +6,12 @@ It only modifies the variable export file (`.gitlab.var.json` file).
 
 The application also has a read-only mode, in which only read calls are made: `-dryrun`
 
+## Installation
+
+```
+go install github.com/didier13150/glduplicate@latest
+```
+
 ## Application Usage
 
 ```
