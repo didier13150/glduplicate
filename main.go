@@ -30,6 +30,7 @@ func main() {
 	var dryrunOpt = flag.Bool("dryrun", false, "Run in dry-run mode (read only).")
 
 	flag.Usage = func() {
+		fmt.Print("Remove duplicate variables (keep the one with the prefix) from glcli export file\n\n")
 		fmt.Printf("Usage: " + os.Args[0] + " [options]\n")
 		flag.PrintDefaults()
 	}
