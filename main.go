@@ -25,7 +25,7 @@ func main() {
 	var varsFileOpt = flag.String("varfile", varsFile, "File which contains vars.")
 	var prefixKeyOpt = flag.String("prefixkey", prefixKey, "Var key which value contains prefix")
 	var prefixEnvOpt = flag.String("prefixenv", prefixEnv, "Var env which value contains prefix")
-	var prefixSepOpt = flag.String("prefixsep", prefixSep, "Separator beztween prefix and real variable name")
+	var prefixSepOpt = flag.String("prefixsep", prefixSep, "Separator between prefix and real variable name")
 	var verboseOpt = flag.Bool("verbose", false, "Make application more talkative.")
 	var dryrunOpt = flag.Bool("dryrun", false, "Run in dry-run mode (read only).")
 
