@@ -2,10 +2,9 @@ module github.com/didier13150/glduplicate
 
 go 1.21.0
 
-require (
-	github.com/didier13150/gitlablib v0.0.6
-	gopkg.in/ini.v1 v1.67.0 // indirect
-)
+require gopkg.in/ini.v1 v1.67.0 // indirect
+
+require github.com/didier13150/gllib v0.2.2
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect

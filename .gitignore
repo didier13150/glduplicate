@@ -1,5 +1,5 @@
 *.bak
-.gitlab.id
+.gitlab.*id
 glduplicate
 *.json
 

@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/didier13150/gitlablib"
+	"github.com/didier13150/gllib"
 )
 
 func main() {
@@ -57,7 +57,7 @@ func main() {
 		prefixSep = *prefixSepOpt
 	}
 
-	glvar := gitlablib.NewGitlabVar("", "", verboseMode)
+	glvar := gllib.NewGitlabVar("", "", verboseMode)
 	if dryrunMode {
 		glvar.DryrunMode = dryrunMode
 	}
@@ -71,7 +71,7 @@ func main() {
 		log.Printf("Var prefix is defined to \"%s\"\n", varPrefix)
 	}
 
-	var prefixedVars []gitlablib.GitlabVarData
+	var prefixedVars []gllib.GitlabVarData
 	for _, varItem := range glvar.FileData {
 		if len(varItem.Key) > len(varPrefix) {
 			if varItem.Key[0:len(varPrefix)] == varPrefix {
@@ -111,7 +111,7 @@ func main() {
 	}
 }
 
-func getValue(glvar *gitlablib.GitlabVar, key string, env string) string {
+func getValue(glvar *gllib.GitlabVar, key string, env string) string {
 	for _, varItem := range glvar.FileData {
 		if varItem.Key == key && varItem.Env == env {
 			return varItem.Value
