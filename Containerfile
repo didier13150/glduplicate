@@ -22,7 +22,7 @@ RUN cd build && \
 FROM scratch
 
 LABEL org.opencontainers.image.authors="Didier FABERT <didier.fabert@gmail.com>"
-LABEL eu.tartarefr.glcli.version=1.0.0
+LABEL eu.tartarefr.glduplicate.version=1.0.0
 
 COPY --from=build build/glduplicate /glduplicate
 COPY LICENSE /LICENSE
