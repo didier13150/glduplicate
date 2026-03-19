@@ -66,7 +66,10 @@ func main() {
 	}
 	glvar.ImportVars(varsFile)
 
-	varPrefix := getValue(&glvar, prefixKey, prefixEnv) + prefixSep
+	varPrefix := getValue(&glvar, prefixKey, prefixEnv)
+	if varPrefix[len(varPrefix)-1:] != prefixSep {
+		varPrefix += prefixSep
+	}
 	if verboseMode {
 		log.Printf("Var prefix is defined to \"%s\"\n", varPrefix)
 	}
